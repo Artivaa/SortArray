@@ -5,8 +5,6 @@
 using namespace std;
 using namespace std::chrono;
 
-const int SIZE = 10;
-
 void printArray(int arr[], int size)
 {
     for (int i = 0; i < size; i++)
@@ -102,27 +100,28 @@ int main()
 {
     setlocale(LC_ALL, "Russian");
 
-    int array[SIZE] = { 1, 3, 5, 7, 9, 7, 5, 3, 1, 0 };
+    int array[] = { 1, 3, 5, 7, 9, 7, 5, 3, 1, 0 };
+    const int size = sizeof(array) / sizeof(array[0]);
 
     cout << "Исходный массив:\n";
-    printArray(array, SIZE);
+    printArray(array, size);
     cout << endl;
 
-    int arrayBubble[SIZE];
-    int arrayInsertion[SIZE];
-    int arraySelection[SIZE];
+    int arrayBubble[size];
+    int arrayInsertion[size];
+    int arraySelection[size];
 
     // Копируем исходный массив для каждой сортировки
-    for (int i = 0; i < SIZE; i++)
+    for (int i = 0; i < size; i++)
     {
         arrayBubble[i] = array[i];
         arrayInsertion[i] = array[i];
         arraySelection[i] = array[i];
     }
 
-    bubbleSort(arrayBubble, SIZE);
-    insertionSort(arrayInsertion, SIZE);
-    selectionSort(arraySelection, SIZE);
+    bubbleSort(arrayBubble, size);
+    insertionSort(arrayInsertion, size);
+    selectionSort(arraySelection, size);
 
     return 0;
 }
